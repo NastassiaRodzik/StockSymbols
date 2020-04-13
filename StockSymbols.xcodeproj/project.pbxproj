@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		1124BCF62444FCF900AA6F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BCF52444FCF900AA6F2C /* AppDelegate.swift */; };
 		1124BCF82444FCF900AA6F2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BCF72444FCF900AA6F2C /* SceneDelegate.swift */; };
-		1124BCFA2444FCF900AA6F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BCF92444FCF900AA6F2C /* ViewController.swift */; };
-		1124BCFD2444FCF900AA6F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124BCFB2444FCF900AA6F2C /* Main.storyboard */; };
 		1124BCFF2444FCFD00AA6F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1124BCFE2444FCFD00AA6F2C /* Assets.xcassets */; };
 		1124BD022444FCFD00AA6F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1124BD002444FCFD00AA6F2C /* LaunchScreen.storyboard */; };
 		1124BD0D2444FCFD00AA6F2C /* StockSymbolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD0C2444FCFD00AA6F2C /* StockSymbolsTests.swift */; };
 		1124BD182444FCFD00AA6F2C /* StockSymbolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD172444FCFD00AA6F2C /* StockSymbolsUITests.swift */; };
+		1124BD292444FD6000AA6F2C /* SymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD272444FD6000AA6F2C /* SymbolTableViewCell.swift */; };
+		1124BD2A2444FD6000AA6F2C /* SymbolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1124BD282444FD6000AA6F2C /* SymbolTableViewCell.xib */; };
+		1124BD2D2444FD9400AA6F2C /* SymbolsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD2B2444FD9400AA6F2C /* SymbolsListViewController.swift */; };
+		1124BD2E2444FD9400AA6F2C /* SymbolsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1124BD2C2444FD9400AA6F2C /* SymbolsListViewController.xib */; };
+		1124BD302445095400AA6F2C /* SymbolsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD2F2445095400AA6F2C /* SymbolsListViewModel.swift */; };
+		1124BD3824450A1500AA6F2C /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD3424450A1500AA6F2C /* NetworkingService.swift */; };
+		1124BD3924450A1500AA6F2C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD3524450A1500AA6F2C /* NetworkError.swift */; };
+		1124BD3A24450A1500AA6F2C /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD3624450A1500AA6F2C /* NetworkRouter.swift */; };
+		1124BD3F24450A6700AA6F2C /* SymbolsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD3E24450A6700AA6F2C /* SymbolsRouter.swift */; };
+		1124BD4124450A7E00AA6F2C /* SymbolsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD4024450A7E00AA6F2C /* SymbolsListService.swift */; };
+		1124BD4324450E5800AA6F2C /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD4224450E5800AA6F2C /* Symbols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +47,6 @@
 		1124BCF22444FCF800AA6F2C /* StockSymbols.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockSymbols.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1124BCF52444FCF900AA6F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1124BCF72444FCF900AA6F2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1124BCF92444FCF900AA6F2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1124BCFC2444FCF900AA6F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1124BCFE2444FCFD00AA6F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1124BD012444FCFD00AA6F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1124BD032444FCFD00AA6F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +56,17 @@
 		1124BD132444FCFD00AA6F2C /* StockSymbolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockSymbolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1124BD172444FCFD00AA6F2C /* StockSymbolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSymbolsUITests.swift; sourceTree = "<group>"; };
 		1124BD192444FCFD00AA6F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1124BD272444FD6000AA6F2C /* SymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTableViewCell.swift; sourceTree = "<group>"; };
+		1124BD282444FD6000AA6F2C /* SymbolTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolTableViewCell.xib; sourceTree = "<group>"; };
+		1124BD2B2444FD9400AA6F2C /* SymbolsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListViewController.swift; sourceTree = "<group>"; };
+		1124BD2C2444FD9400AA6F2C /* SymbolsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolsListViewController.xib; sourceTree = "<group>"; };
+		1124BD2F2445095400AA6F2C /* SymbolsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListViewModel.swift; sourceTree = "<group>"; };
+		1124BD3424450A1500AA6F2C /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		1124BD3524450A1500AA6F2C /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		1124BD3624450A1500AA6F2C /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		1124BD3E24450A6700AA6F2C /* SymbolsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsRouter.swift; sourceTree = "<group>"; };
+		1124BD4024450A7E00AA6F2C /* SymbolsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListService.swift; sourceTree = "<group>"; };
+		1124BD4224450E5800AA6F2C /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +117,10 @@
 		1124BCF42444FCF800AA6F2C /* StockSymbols */ = {
 			isa = PBXGroup;
 			children = (
-				1124BCF52444FCF900AA6F2C /* AppDelegate.swift */,
-				1124BCF72444FCF900AA6F2C /* SceneDelegate.swift */,
-				1124BCF92444FCF900AA6F2C /* ViewController.swift */,
-				1124BCFB2444FCF900AA6F2C /* Main.storyboard */,
-				1124BCFE2444FCFD00AA6F2C /* Assets.xcassets */,
-				1124BD002444FCFD00AA6F2C /* LaunchScreen.storyboard */,
+				1124BD33244509F400AA6F2C /* Model */,
+				1124BD32244509DE00AA6F2C /* Networking */,
+				1124BD31244509A300AA6F2C /* Resources */,
+				1124BD252444FD1700AA6F2C /* Symbols List */,
 				1124BD032444FCFD00AA6F2C /* Info.plist */,
 			);
 			path = StockSymbols;
@@ -126,6 +142,73 @@
 				1124BD192444FCFD00AA6F2C /* Info.plist */,
 			);
 			path = StockSymbolsUITests;
+			sourceTree = "<group>";
+		};
+		1124BD252444FD1700AA6F2C /* Symbols List */ = {
+			isa = PBXGroup;
+			children = (
+				1124BD262444FD2300AA6F2C /* Cell */,
+				1124BD2B2444FD9400AA6F2C /* SymbolsListViewController.swift */,
+				1124BD2C2444FD9400AA6F2C /* SymbolsListViewController.xib */,
+				1124BD2F2445095400AA6F2C /* SymbolsListViewModel.swift */,
+			);
+			path = "Symbols List";
+			sourceTree = "<group>";
+		};
+		1124BD262444FD2300AA6F2C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1124BD272444FD6000AA6F2C /* SymbolTableViewCell.swift */,
+				1124BD282444FD6000AA6F2C /* SymbolTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1124BD31244509A300AA6F2C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1124BCFE2444FCFD00AA6F2C /* Assets.xcassets */,
+				1124BD002444FCFD00AA6F2C /* LaunchScreen.storyboard */,
+				1124BCF52444FCF900AA6F2C /* AppDelegate.swift */,
+				1124BCF72444FCF900AA6F2C /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1124BD32244509DE00AA6F2C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1124BD3D24450A4E00AA6F2C /* TrendingSymbols */,
+				1124BD3C24450A3A00AA6F2C /* Core */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1124BD33244509F400AA6F2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1124BD4224450E5800AA6F2C /* Symbols.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1124BD3C24450A3A00AA6F2C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1124BD3524450A1500AA6F2C /* NetworkError.swift */,
+				1124BD3424450A1500AA6F2C /* NetworkingService.swift */,
+				1124BD3624450A1500AA6F2C /* NetworkRouter.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1124BD3D24450A4E00AA6F2C /* TrendingSymbols */ = {
+			isa = PBXGroup;
+			children = (
+				1124BD3E24450A6700AA6F2C /* SymbolsRouter.swift */,
+				1124BD4024450A7E00AA6F2C /* SymbolsListService.swift */,
+			);
+			path = TrendingSymbols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1124BD022444FCFD00AA6F2C /* LaunchScreen.storyboard in Resources */,
+				1124BD2A2444FD6000AA6F2C /* SymbolTableViewCell.xib in Resources */,
+				1124BD2E2444FD9400AA6F2C /* SymbolsListViewController.xib in Resources */,
 				1124BCFF2444FCFD00AA6F2C /* Assets.xcassets in Resources */,
-				1124BCFD2444FCF900AA6F2C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +343,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1124BCFA2444FCF900AA6F2C /* ViewController.swift in Sources */,
+				1124BD3F24450A6700AA6F2C /* SymbolsRouter.swift in Sources */,
+				1124BD292444FD6000AA6F2C /* SymbolTableViewCell.swift in Sources */,
+				1124BD3A24450A1500AA6F2C /* NetworkRouter.swift in Sources */,
+				1124BD4324450E5800AA6F2C /* Symbols.swift in Sources */,
+				1124BD3924450A1500AA6F2C /* NetworkError.swift in Sources */,
 				1124BCF62444FCF900AA6F2C /* AppDelegate.swift in Sources */,
+				1124BD2D2444FD9400AA6F2C /* SymbolsListViewController.swift in Sources */,
+				1124BD3824450A1500AA6F2C /* NetworkingService.swift in Sources */,
+				1124BD4124450A7E00AA6F2C /* SymbolsListService.swift in Sources */,
 				1124BCF82444FCF900AA6F2C /* SceneDelegate.swift in Sources */,
+				1124BD302445095400AA6F2C /* SymbolsListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +389,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1124BCFB2444FCF900AA6F2C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1124BCFC2444FCF900AA6F2C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1124BD002444FCFD00AA6F2C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
