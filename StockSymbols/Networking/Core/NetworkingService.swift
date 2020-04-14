@@ -29,6 +29,7 @@ extension NetworkingService {
                             }
                             throw NetworkError.invalidResponse
                     }
+                    
                     return data
                 }
                 .decode(type: T.self, decoder: JSONDecoder())

@@ -61,6 +61,7 @@ private extension SymbolsListViewController {
     func configureInterface() {
         configureTable()
         configureTextField()
+        self.title = NSLocalizedString("Stock Symbols", comment: "")
     }
     
     func configureTextField() {
@@ -80,6 +81,7 @@ private extension SymbolsListViewController {
                               forCellReuseIdentifier: SymbolTableViewCell.identifier)
         symbolsTable.rowHeight = SymbolTableViewCell.rowHeight
         symbolsTable.dataSource = self
+        symbolsTable.delegate = self
         symbolsTable.keyboardDismissMode = .onDrag
     }
     
@@ -107,8 +109,19 @@ extension SymbolsListViewController: UITableViewDataSource {
         cell.configure(with: currentSymbol)
         return cell
     }
+}
+
+// MARK: - UITableViewDelegate
+extension SymbolsListViewController: UITableViewDelegate {
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let symbol = symbols[indexPath.row]
+        print("did select \(symbol)")
+        let viewModel = SymbolDetailsViewModelForProd(symbol: symbol)
+        let viewControllerToPresent = SymbolDetailsViewController(viewModel: viewModel)
+//        present(viewControllerToPresent, animated: true, completion: nil)
+        navigationController?.pushViewController(viewControllerToPresent, animated: true)
+    }
 }
 
 // MARK: - UIPickerViewDataSource
@@ -120,8 +133,6 @@ extension SymbolsListViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return maxSymbolsNumber
     }
-    
-    
 }
 
 // MARK: - UIPickerViewDelegate

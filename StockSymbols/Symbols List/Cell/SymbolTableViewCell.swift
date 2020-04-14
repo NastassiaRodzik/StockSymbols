@@ -11,9 +11,6 @@ import UIKit
 class SymbolTableViewCell: UITableViewCell {
     
     static let rowHeight: CGFloat = 80
-    static var identifier: String {
-        return String(describing: self)
-    }
     
     @IBOutlet private weak var nameLabel: UILabel!
     

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110B647D24455058005492AD /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B647C24455058005492AD /* Symbol.swift */; };
+		110B64812445541F005492AD /* SymbolRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64802445541F005492AD /* SymbolRoute.swift */; };
+		110B648324455432005492AD /* SymbolNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648224455432005492AD /* SymbolNetworkingService.swift */; };
+		110B64872445586D005492AD /* SymbolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64852445586D005492AD /* SymbolDetailsViewController.swift */; };
+		110B64882445586D005492AD /* SymbolDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110B64862445586D005492AD /* SymbolDetailsViewController.xib */; };
+		110B648A24455893005492AD /* SymbolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648924455893005492AD /* SymbolDetailsViewModel.swift */; };
+		110B648C2446004A005492AD /* SymbolDataProcessed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648B2446004A005492AD /* SymbolDataProcessed.swift */; };
+		110B64902446061E005492AD /* SymbolDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648E2446061E005492AD /* SymbolDetailTableViewCell.swift */; };
+		110B64912446061E005492AD /* SymbolDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110B648F2446061E005492AD /* SymbolDetailTableViewCell.xib */; };
+		110B64952446076F005492AD /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64942446076F005492AD /* UITableViewCell.swift */; };
 		1124BCF62444FCF900AA6F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BCF52444FCF900AA6F2C /* AppDelegate.swift */; };
 		1124BCF82444FCF900AA6F2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BCF72444FCF900AA6F2C /* SceneDelegate.swift */; };
 		1124BCFF2444FCFD00AA6F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1124BCFE2444FCFD00AA6F2C /* Assets.xcassets */; };
@@ -44,6 +54,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		110B647C24455058005492AD /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		110B64802445541F005492AD /* SymbolRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolRoute.swift; sourceTree = "<group>"; };
+		110B648224455432005492AD /* SymbolNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolNetworkingService.swift; sourceTree = "<group>"; };
+		110B64852445586D005492AD /* SymbolDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewController.swift; sourceTree = "<group>"; };
+		110B64862445586D005492AD /* SymbolDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolDetailsViewController.xib; sourceTree = "<group>"; };
+		110B648924455893005492AD /* SymbolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewModel.swift; sourceTree = "<group>"; };
+		110B648B2446004A005492AD /* SymbolDataProcessed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDataProcessed.swift; sourceTree = "<group>"; };
+		110B648E2446061E005492AD /* SymbolDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailTableViewCell.swift; sourceTree = "<group>"; };
+		110B648F2446061E005492AD /* SymbolDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolDetailTableViewCell.xib; sourceTree = "<group>"; };
+		110B64942446076F005492AD /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		1124BCF22444FCF800AA6F2C /* StockSymbols.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockSymbols.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1124BCF52444FCF900AA6F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1124BCF72444FCF900AA6F2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +114,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110B647E24455402005492AD /* SymbolDetails */ = {
+			isa = PBXGroup;
+			children = (
+				110B64802445541F005492AD /* SymbolRoute.swift */,
+				110B648224455432005492AD /* SymbolNetworkingService.swift */,
+			);
+			path = SymbolDetails;
+			sourceTree = "<group>";
+		};
+		110B648424455593005492AD /* SymbolDetails */ = {
+			isa = PBXGroup;
+			children = (
+				110B648D24460608005492AD /* Cell */,
+				110B64852445586D005492AD /* SymbolDetailsViewController.swift */,
+				110B64862445586D005492AD /* SymbolDetailsViewController.xib */,
+				110B648924455893005492AD /* SymbolDetailsViewModel.swift */,
+				110B648B2446004A005492AD /* SymbolDataProcessed.swift */,
+			);
+			path = SymbolDetails;
+			sourceTree = "<group>";
+		};
+		110B648D24460608005492AD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				110B648E2446061E005492AD /* SymbolDetailTableViewCell.swift */,
+				110B648F2446061E005492AD /* SymbolDetailTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		110B649224460759005492AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				110B64932446075F005492AD /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		110B64932446075F005492AD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				110B64942446076F005492AD /* UITableViewCell.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		1124BCE92444FCF800AA6F2C = {
 			isa = PBXGroup;
 			children = (
@@ -117,10 +183,12 @@
 		1124BCF42444FCF800AA6F2C /* StockSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				110B649224460759005492AD /* Extensions */,
 				1124BD33244509F400AA6F2C /* Model */,
 				1124BD32244509DE00AA6F2C /* Networking */,
 				1124BD31244509A300AA6F2C /* Resources */,
 				1124BD252444FD1700AA6F2C /* Symbols List */,
+				110B648424455593005492AD /* SymbolDetails */,
 				1124BD032444FCFD00AA6F2C /* Info.plist */,
 			);
 			path = StockSymbols;
@@ -178,6 +246,7 @@
 		1124BD32244509DE00AA6F2C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				110B647E24455402005492AD /* SymbolDetails */,
 				1124BD3D24450A4E00AA6F2C /* TrendingSymbols */,
 				1124BD3C24450A3A00AA6F2C /* Core */,
 			);
@@ -188,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				1124BD4224450E5800AA6F2C /* Symbols.swift */,
+				110B647C24455058005492AD /* Symbol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,8 +387,10 @@
 			files = (
 				1124BD022444FCFD00AA6F2C /* LaunchScreen.storyboard in Resources */,
 				1124BD2A2444FD6000AA6F2C /* SymbolTableViewCell.xib in Resources */,
+				110B64912446061E005492AD /* SymbolDetailTableViewCell.xib in Resources */,
 				1124BD2E2444FD9400AA6F2C /* SymbolsListViewController.xib in Resources */,
 				1124BCFF2444FCFD00AA6F2C /* Assets.xcassets in Resources */,
+				110B64882445586D005492AD /* SymbolDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,15 +417,23 @@
 			files = (
 				1124BD3F24450A6700AA6F2C /* SymbolsRouter.swift in Sources */,
 				1124BD292444FD6000AA6F2C /* SymbolTableViewCell.swift in Sources */,
+				110B64872445586D005492AD /* SymbolDetailsViewController.swift in Sources */,
 				1124BD3A24450A1500AA6F2C /* NetworkRouter.swift in Sources */,
 				1124BD4324450E5800AA6F2C /* Symbols.swift in Sources */,
+				110B64952446076F005492AD /* UITableViewCell.swift in Sources */,
+				110B64812445541F005492AD /* SymbolRoute.swift in Sources */,
 				1124BD3924450A1500AA6F2C /* NetworkError.swift in Sources */,
+				110B647D24455058005492AD /* Symbol.swift in Sources */,
 				1124BCF62444FCF900AA6F2C /* AppDelegate.swift in Sources */,
 				1124BD2D2444FD9400AA6F2C /* SymbolsListViewController.swift in Sources */,
 				1124BD3824450A1500AA6F2C /* NetworkingService.swift in Sources */,
 				1124BD4124450A7E00AA6F2C /* SymbolsListService.swift in Sources */,
+				110B648324455432005492AD /* SymbolNetworkingService.swift in Sources */,
 				1124BCF82444FCF900AA6F2C /* SceneDelegate.swift in Sources */,
 				1124BD302445095400AA6F2C /* SymbolsListViewModel.swift in Sources */,
+				110B648A24455893005492AD /* SymbolDetailsViewModel.swift in Sources */,
+				110B64902446061E005492AD /* SymbolDetailTableViewCell.swift in Sources */,
+				110B648C2446004A005492AD /* SymbolDataProcessed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
