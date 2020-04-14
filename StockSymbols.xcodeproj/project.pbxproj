@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03D2273AA1F03550D6FAB713 /* Pods_StockSymbolsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384F4B7C2DE16E95A211E7FE /* Pods_StockSymbolsTests.framework */; };
 		110B647D24455058005492AD /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B647C24455058005492AD /* Symbol.swift */; };
 		110B64812445541F005492AD /* SymbolRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64802445541F005492AD /* SymbolRoute.swift */; };
 		110B648324455432005492AD /* SymbolNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648224455432005492AD /* SymbolNetworkingService.swift */; };
@@ -34,6 +35,10 @@
 		1124BD3F24450A6700AA6F2C /* SymbolsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD3E24450A6700AA6F2C /* SymbolsRouter.swift */; };
 		1124BD4124450A7E00AA6F2C /* SymbolsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD4024450A7E00AA6F2C /* SymbolsListService.swift */; };
 		1124BD4324450E5800AA6F2C /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1124BD4224450E5800AA6F2C /* Symbols.swift */; };
+		11842C3124460C9C00932E7A /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11842C2F24460C9C00932E7A /* ChartTableViewCell.swift */; };
+		11842C3224460C9C00932E7A /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11842C3024460C9C00932E7A /* ChartTableViewCell.xib */; };
+		1BE45AD0791C570B274A321C /* Pods_StockSymbols_StockSymbolsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478BC5E0F6F4B51BCE9A35EF /* Pods_StockSymbols_StockSymbolsUITests.framework */; };
+		2CFA2155762A83EAB9075B51 /* Pods_StockSymbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F619627F5F2483505028B1DF /* Pods_StockSymbols.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,17 @@
 		1124BD3E24450A6700AA6F2C /* SymbolsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsRouter.swift; sourceTree = "<group>"; };
 		1124BD4024450A7E00AA6F2C /* SymbolsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListService.swift; sourceTree = "<group>"; };
 		1124BD4224450E5800AA6F2C /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		11842C2F24460C9C00932E7A /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		11842C3024460C9C00932E7A /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
+		271559622D84D2C93CC8B3D8 /* Pods-StockSymbols.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbols.debug.xcconfig"; path = "Target Support Files/Pods-StockSymbols/Pods-StockSymbols.debug.xcconfig"; sourceTree = "<group>"; };
+		384F4B7C2DE16E95A211E7FE /* Pods_StockSymbolsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockSymbolsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D747ECBB3C89C6C4B3A3AA1 /* Pods-StockSymbols-StockSymbolsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbols-StockSymbolsUITests.release.xcconfig"; path = "Target Support Files/Pods-StockSymbols-StockSymbolsUITests/Pods-StockSymbols-StockSymbolsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		478BC5E0F6F4B51BCE9A35EF /* Pods_StockSymbols_StockSymbolsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockSymbols_StockSymbolsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53DC7096C7AEFB2DE4FE4DBC /* Pods-StockSymbols-StockSymbolsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbols-StockSymbolsUITests.debug.xcconfig"; path = "Target Support Files/Pods-StockSymbols-StockSymbolsUITests/Pods-StockSymbols-StockSymbolsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7EBF4B50640FCA1F4B71D1D9 /* Pods-StockSymbols.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbols.release.xcconfig"; path = "Target Support Files/Pods-StockSymbols/Pods-StockSymbols.release.xcconfig"; sourceTree = "<group>"; };
+		BDB7B80366E2C811C9ABB46C /* Pods-StockSymbolsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbolsTests.debug.xcconfig"; path = "Target Support Files/Pods-StockSymbolsTests/Pods-StockSymbolsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5A287F137CDF123ACCC6894 /* Pods-StockSymbolsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbolsTests.release.xcconfig"; path = "Target Support Files/Pods-StockSymbolsTests/Pods-StockSymbolsTests.release.xcconfig"; sourceTree = "<group>"; };
+		F619627F5F2483505028B1DF /* Pods_StockSymbols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockSymbols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFA2155762A83EAB9075B51 /* Pods_StockSymbols.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D2273AA1F03550D6FAB713 /* Pods_StockSymbolsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE45AD0791C570B274A321C /* Pods_StockSymbols_StockSymbolsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +159,8 @@
 			children = (
 				110B648E2446061E005492AD /* SymbolDetailTableViewCell.swift */,
 				110B648F2446061E005492AD /* SymbolDetailTableViewCell.xib */,
+				11842C2F24460C9C00932E7A /* ChartTableViewCell.swift */,
+				11842C3024460C9C00932E7A /* ChartTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -167,6 +188,8 @@
 				1124BD0B2444FCFD00AA6F2C /* StockSymbolsTests */,
 				1124BD162444FCFD00AA6F2C /* StockSymbolsUITests */,
 				1124BCF32444FCF800AA6F2C /* Products */,
+				AEDE05280C15117264553107 /* Pods */,
+				A89496F29CD64775646E1526 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,6 +304,29 @@
 			path = TrendingSymbols;
 			sourceTree = "<group>";
 		};
+		A89496F29CD64775646E1526 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F619627F5F2483505028B1DF /* Pods_StockSymbols.framework */,
+				478BC5E0F6F4B51BCE9A35EF /* Pods_StockSymbols_StockSymbolsUITests.framework */,
+				384F4B7C2DE16E95A211E7FE /* Pods_StockSymbolsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AEDE05280C15117264553107 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				271559622D84D2C93CC8B3D8 /* Pods-StockSymbols.debug.xcconfig */,
+				7EBF4B50640FCA1F4B71D1D9 /* Pods-StockSymbols.release.xcconfig */,
+				53DC7096C7AEFB2DE4FE4DBC /* Pods-StockSymbols-StockSymbolsUITests.debug.xcconfig */,
+				3D747ECBB3C89C6C4B3A3AA1 /* Pods-StockSymbols-StockSymbolsUITests.release.xcconfig */,
+				BDB7B80366E2C811C9ABB46C /* Pods-StockSymbolsTests.debug.xcconfig */,
+				C5A287F137CDF123ACCC6894 /* Pods-StockSymbolsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,9 +334,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1124BD1C2444FCFD00AA6F2C /* Build configuration list for PBXNativeTarget "StockSymbols" */;
 			buildPhases = (
+				9BF77E5E4FE716152F5F935C /* [CP] Check Pods Manifest.lock */,
 				1124BCEE2444FCF800AA6F2C /* Sources */,
 				1124BCEF2444FCF800AA6F2C /* Frameworks */,
 				1124BCF02444FCF800AA6F2C /* Resources */,
+				6436987ABF640A28EA01FF36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,6 +353,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1124BD1F2444FCFD00AA6F2C /* Build configuration list for PBXNativeTarget "StockSymbolsTests" */;
 			buildPhases = (
+				AA493C64BAB8A9E988748A37 /* [CP] Check Pods Manifest.lock */,
 				1124BD042444FCFD00AA6F2C /* Sources */,
 				1124BD052444FCFD00AA6F2C /* Frameworks */,
 				1124BD062444FCFD00AA6F2C /* Resources */,
@@ -323,9 +372,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1124BD222444FCFD00AA6F2C /* Build configuration list for PBXNativeTarget "StockSymbolsUITests" */;
 			buildPhases = (
+				A74C186208EB931FB07001B1 /* [CP] Check Pods Manifest.lock */,
 				1124BD0F2444FCFD00AA6F2C /* Sources */,
 				1124BD102444FCFD00AA6F2C /* Frameworks */,
 				1124BD112444FCFD00AA6F2C /* Resources */,
+				AAA0424C4B6CFF2F2F1B14DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,6 +440,7 @@
 				1124BD2A2444FD6000AA6F2C /* SymbolTableViewCell.xib in Resources */,
 				110B64912446061E005492AD /* SymbolDetailTableViewCell.xib in Resources */,
 				1124BD2E2444FD9400AA6F2C /* SymbolsListViewController.xib in Resources */,
+				11842C3224460C9C00932E7A /* ChartTableViewCell.xib in Resources */,
 				1124BCFF2444FCFD00AA6F2C /* Assets.xcassets in Resources */,
 				110B64882445586D005492AD /* SymbolDetailsViewController.xib in Resources */,
 			);
@@ -410,6 +462,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6436987ABF640A28EA01FF36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StockSymbols/Pods-StockSymbols-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StockSymbols/Pods-StockSymbols-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StockSymbols/Pods-StockSymbols-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BF77E5E4FE716152F5F935C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StockSymbols-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A74C186208EB931FB07001B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StockSymbols-StockSymbolsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA493C64BAB8A9E988748A37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StockSymbolsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAA0424C4B6CFF2F2F1B14DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StockSymbols-StockSymbolsUITests/Pods-StockSymbols-StockSymbolsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StockSymbols-StockSymbolsUITests/Pods-StockSymbols-StockSymbolsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StockSymbols-StockSymbolsUITests/Pods-StockSymbols-StockSymbolsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1124BCEE2444FCF800AA6F2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -419,6 +574,7 @@
 				1124BD292444FD6000AA6F2C /* SymbolTableViewCell.swift in Sources */,
 				110B64872445586D005492AD /* SymbolDetailsViewController.swift in Sources */,
 				1124BD3A24450A1500AA6F2C /* NetworkRouter.swift in Sources */,
+				11842C3124460C9C00932E7A /* ChartTableViewCell.swift in Sources */,
 				1124BD4324450E5800AA6F2C /* Symbols.swift in Sources */,
 				110B64952446076F005492AD /* UITableViewCell.swift in Sources */,
 				110B64812445541F005492AD /* SymbolRoute.swift in Sources */,
@@ -596,6 +752,7 @@
 		};
 		1124BD1D2444FCFD00AA6F2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271559622D84D2C93CC8B3D8 /* Pods-StockSymbols.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -613,6 +770,7 @@
 		};
 		1124BD1E2444FCFD00AA6F2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EBF4B50640FCA1F4B71D1D9 /* Pods-StockSymbols.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -630,6 +788,7 @@
 		};
 		1124BD202444FCFD00AA6F2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDB7B80366E2C811C9ABB46C /* Pods-StockSymbolsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -651,6 +810,7 @@
 		};
 		1124BD212444FCFD00AA6F2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5A287F137CDF123ACCC6894 /* Pods-StockSymbolsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -672,6 +832,7 @@
 		};
 		1124BD232444FCFD00AA6F2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53DC7096C7AEFB2DE4FE4DBC /* Pods-StockSymbols-StockSymbolsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -691,6 +852,7 @@
 		};
 		1124BD242444FCFD00AA6F2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D747ECBB3C89C6C4B3A3AA1 /* Pods-StockSymbols-StockSymbolsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

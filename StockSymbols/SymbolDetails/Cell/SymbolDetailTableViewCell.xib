@@ -17,13 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRP-YU-lBc" userLabel="Parameter Title">
-                        <rect key="frame" x="20" y="20" width="0.0" height="0.0"/>
+                        <rect key="frame" x="20" y="25" width="0.0" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="WjG-cZ-4B6"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tax-NV-eKy" userLabel="Parameter Value">
-                        <rect key="frame" x="357" y="20" width="0.0" height="0.0"/>
+                        <rect key="frame" x="357" y="35" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +36,8 @@
                     <constraint firstItem="gRP-YU-lBc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="1a8-10-Rha"/>
                     <constraint firstAttribute="trailing" secondItem="Tax-NV-eKy" secondAttribute="trailing" constant="20" id="D3D-G6-9Ge"/>
                     <constraint firstItem="Tax-NV-eKy" firstAttribute="centerY" secondItem="gRP-YU-lBc" secondAttribute="centerY" id="ThJ-b5-vgO"/>
-                    <constraint firstItem="gRP-YU-lBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="eTP-SS-KIM"/>
+                    <constraint firstItem="gRP-YU-lBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="eTP-SS-KIM"/>
+                    <constraint firstAttribute="bottom" secondItem="gRP-YU-lBc" secondAttribute="bottom" constant="25" id="hsW-pW-gIj"/>
                     <constraint firstItem="Tax-NV-eKy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gRP-YU-lBc" secondAttribute="trailing" constant="10" id="s1X-Nv-USu"/>
                 </constraints>
             </tableViewCellContentView>

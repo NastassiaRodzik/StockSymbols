@@ -19,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRw-am-MvK">
-                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                    <rect key="frame" x="0.0" y="64" width="414" height="798"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="IRw-am-MvK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="PEd-Z9-HSv"/>
+                <constraint firstItem="IRw-am-MvK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="PEd-Z9-HSv"/>
                 <constraint firstItem="IRw-am-MvK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Zlf-bm-GGG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IRw-am-MvK" secondAttribute="bottom" id="e1Y-M8-APs"/>
                 <constraint firstItem="IRw-am-MvK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sQN-a5-c5t"/>

@@ -41,6 +41,7 @@ class SymbolsListViewController: UIViewController {
 
         configureInterface()
         symbolsCancellable = viewModel.symbolsPublisher.sink(receiveCompletion: { completion in
+            // TODO: show error if needed
             print(completion)
         }) { [weak self] symbols in
             self?.symbols = symbols
