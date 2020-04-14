@@ -15,7 +15,7 @@ class SymbolsListViewController: UIViewController {
     @IBOutlet private weak var symbolsNumberTextField: UITextField!
     
     private let symbolsNumberPicker = UIPickerView()
-    private let pickerToolbar = UIToolbar()
+    private let pickerToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
     
     private var symbols: [String] = [] {
         didSet {
