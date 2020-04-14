@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SymbolTableViewCell: UITableViewCell {
+final class SymbolTableViewCell: UITableViewCell {
     
     static let rowHeight: CGFloat = 80
     

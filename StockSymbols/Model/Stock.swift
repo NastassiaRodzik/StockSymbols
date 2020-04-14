@@ -33,23 +33,9 @@ struct Meta: Codable {
     let symbol: String
     let exchangeName: String
     let instrumentType: String
-    let firstTradeDate: TimeInterval
-    let regularMarketTime: TimeInterval
-    let gmtoffset: TimeInterval
-    let timezone: String
-    let exchangeTimezoneName: String
     let regularMarketPrice: Double
-    let chartPreviousClose: Double
     let previousClose: Double?
-    let scale: Int?
-    let priceHint: Int
-    //currentTradingPeriod
-    //tradingPeriods
-    let dataGranularity: String
-    let range: String
     let validRanges: [String]
-   
-
 }
 
 struct Indicator: Codable {

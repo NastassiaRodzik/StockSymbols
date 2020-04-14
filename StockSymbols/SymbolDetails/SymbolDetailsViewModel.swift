@@ -13,16 +13,18 @@ protocol SymbolDetailsViewModel {
     
     var symbol: String { get }
     
+    var isDataLoading: CurrentValueSubject<Bool, Never> { get }
     var symbolData: PassthroughSubject<StockDataProcessed, Never> { get }
     var symbolDataLoadingError: PassthroughSubject<Error, Never> { get }
     var selectedRange: CurrentValueSubject<StockRange, Never> { get }
     func loadData()
 }
 
-class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
+final class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
     
     let symbol: String
     
+    var isDataLoading: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
     var symbolData: PassthroughSubject<StockDataProcessed, Never> = PassthroughSubject()
     var symbolDataLoadingError: PassthroughSubject<Error, Never> = PassthroughSubject()
     var selectedRange: CurrentValueSubject<StockRange, Never> = CurrentValueSubject(.oneDay)
@@ -46,17 +48,16 @@ class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
         
         isConnectedCancellable = connectivityManager.isConnected
             .removeDuplicates()
-            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .sink(receiveValue: { [weak self] isConnected in
-                guard let self = self else { return }
-                
-                if isConnected {
-                    if self.isLoadingFailedDueToInternedConnection {
-                        self.loadData()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    if isConnected {
+                        if self.isLoadingFailedDueToInternedConnection {
+                            self.loadData()
+                        }
                     }
                 }
-                
         })
     }
     
@@ -66,12 +67,13 @@ class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
             symbolDataLoadingError.send(NetworkError.noInternetConnection)
             return
         }
-        
+        isDataLoading.value = true
         isLoadingFailedDueToInternedConnection = false
         let networkingService = StockInfoNetworkingService(symbol: symbol, range: selectedRange.value)
         do {
             stockInfoCancellable = try networkingService.loadSymbolInfo().sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
+                self.isDataLoading.value = false
                 switch completion {
                 case .failure(let error):
                     let nsError = error as NSError
@@ -85,6 +87,7 @@ class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
                 }
             }, receiveValue: { [weak self] symbolData in
                 guard let self = self else { return }
+                self.isDataLoading.value = false
                 if let symbolData = StockDataProcessed(stock: symbolData) {
                     self.symbolData.send(symbolData)
                 } else {
@@ -96,6 +99,7 @@ class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
                 }
             })
         } catch {
+            self.isDataLoading.value = false
             self.symbolDataLoadingError.send(error)
         }
        

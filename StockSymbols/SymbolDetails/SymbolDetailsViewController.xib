@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SymbolDetailsViewController" customModule="StockSymbols" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicatorView" destination="2bl-FZ-iOL" id="x8S-Xc-vC5"/>
                 <outlet property="selectRangeButton" destination="EYB-05-fzh" id="5GS-1J-8tZ"/>
                 <outlet property="tableView" destination="IRw-am-MvK" id="Qyp-tl-xcP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -55,15 +56,20 @@
                     <rect key="frame" x="0.0" y="164" width="414" height="698"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-FZ-iOL">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="TwC-RO-koQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5iC-R0-fZn"/>
+                <constraint firstItem="2bl-FZ-iOL" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Bj8-bH-Prl"/>
                 <constraint firstItem="IRw-am-MvK" firstAttribute="top" secondItem="TwC-RO-koQ" secondAttribute="bottom" constant="10" id="Da3-CJ-Zjq"/>
                 <constraint firstItem="IRw-am-MvK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ea0-db-MT9"/>
                 <constraint firstItem="TwC-RO-koQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HJT-V9-fGw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IRw-am-MvK" secondAttribute="bottom" id="clK-aR-Bmc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IRw-am-MvK" secondAttribute="trailing" id="g5m-oa-80U"/>
+                <constraint firstItem="2bl-FZ-iOL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qto-yv-5uh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TwC-RO-koQ" secondAttribute="trailing" constant="20" id="r7q-xC-DNm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

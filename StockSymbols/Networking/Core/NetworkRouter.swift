@@ -35,7 +35,6 @@ extension NetworkRouter {
         }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        request.cachePolicy = .returnCacheDataElseLoad
 
         headers.forEach { (headerTitle, headerValue) in
             request.addValue(headerValue, forHTTPHeaderField: headerTitle)

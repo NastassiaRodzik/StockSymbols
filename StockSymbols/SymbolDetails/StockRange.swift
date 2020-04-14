@@ -12,7 +12,6 @@ enum StockRange: String {
     case oneDay = "1d"
     case fiveDays = "5d"
     case oneMonth = "1mo"
-    case threeMonths = "3mo"
     case max
 }
 
@@ -25,8 +24,6 @@ extension StockRange {
             return NSLocalizedString("5 Days", comment: "")
         case .oneMonth:
             return NSLocalizedString("1 Month", comment: "")
-        case .threeMonths:
-            return NSLocalizedString("3 Months", comment: "")
         case .max:
             return NSLocalizedString("Max", comment: "")
         }

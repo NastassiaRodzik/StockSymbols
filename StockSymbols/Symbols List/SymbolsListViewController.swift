@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-class SymbolsListViewController: UIViewController {
+final class SymbolsListViewController: UIViewController {
 
     @IBOutlet private weak var symbolsTable: UITableView!
     @IBOutlet private weak var symbolsNumberTextField: UITextField!

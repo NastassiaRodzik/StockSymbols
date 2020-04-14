@@ -20,7 +20,7 @@ protocol SymbolsListViewModel {
     func loadSymbols()
 }
 
-class SymbolsListViewModelForProd: SymbolsListViewModel {
+final class SymbolsListViewModelForProd: SymbolsListViewModel {
     
     let symbolsPublisher: PassthroughSubject<[String], Never> = PassthroughSubject()
     var symbolsLoadingErrorPublisher: PassthroughSubject<Error, Never> = PassthroughSubject()
@@ -38,7 +38,7 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
         self.connectivityManager = connectivityManager
         
         symbolsCountStringCancellable = symbolsCountPublisher
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .debounce(for: 0.5, scheduler: RunLoop.main)
             .removeDuplicates()
             .sink { symbolsCount in
                 self.loadSymbols(symbolsCount)
@@ -46,17 +46,17 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
         
         isConnectedCancellable = connectivityManager.isConnected
             .removeDuplicates()
-            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .sink(receiveValue: { [weak self] isConnected in
-                guard let self = self else { return }
-                
-                if isConnected {
-                    if self.isLoadingFailedDueToInternedConnection {
-                        self.loadSymbols()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    if isConnected {
+                        if self.isLoadingFailedDueToInternedConnection {
+                            self.loadSymbols()
+                        }
                     }
                 }
-                
         })
     }
     
@@ -76,28 +76,32 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
         do {
             let networkingClient = SymbolsListNetworkingService(symbolsCount: symbolsNumber)
             sumbolsCancellable = try networkingClient.loadSymbols(symbolsNumber)
-                .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { [weak self] completion in
-                guard let self = self else { return }
-                switch completion {
-                case .failure(let error):
-                    let nsError = error as NSError
-                    let noInternetConnectionCode = -1009
-                    if nsError.code == noInternetConnectionCode {
-                        self.isLoadingFailedDueToInternedConnection = true
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        switch completion {
+                        case .failure(let error):
+                            let nsError = error as NSError
+                            let noInternetConnectionCode = -1009
+                            if nsError.code == noInternetConnectionCode {
+                                self.isLoadingFailedDueToInternedConnection = true
+                            }
+                            self.symbolsLoadingErrorPublisher.send(error)
+                        case .finished:
+                            self.sumbolsCancellable?.cancel()
+                        }
                     }
-                    self.symbolsLoadingErrorPublisher.send(error)
-                case .finished:
-                    self.sumbolsCancellable?.cancel()
-                }
+                
             }) { [weak self] symbols in
-                guard let self = self else { return }
-                guard let result = symbols.finance.result.first else {
-                    self.symbolsLoadingErrorPublisher.send(NetworkError.noDataAvailable)
-                    return
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    guard let result = symbols.finance.result.first else {
+                        self.symbolsLoadingErrorPublisher.send(NetworkError.noDataAvailable)
+                        return
+                    }
+                    let symbolsValue = result.quotes.compactMap({ $0.symbol })
+                    self.symbolsPublisher.send(symbolsValue)
                 }
-                let symbolsValue = result.quotes.compactMap({ $0.symbol })
-                self.symbolsPublisher.send(symbolsValue)
             }
         } catch {
             symbolsLoadingErrorPublisher.send(error)

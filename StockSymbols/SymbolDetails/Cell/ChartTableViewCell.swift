@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class ChartTableViewCell: UITableViewCell {
+final class ChartTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var chartView: LineChartView!
     
@@ -42,6 +42,8 @@ class ChartTableViewCell: UITableViewCell {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawLabelsEnabled = false
         chartView.legend.enabled = false
+        chartView.rightAxis.labelTextColor = UIColor.gray
+        chartView.leftAxis.labelTextColor = UIColor.gray
     }
     
 }
