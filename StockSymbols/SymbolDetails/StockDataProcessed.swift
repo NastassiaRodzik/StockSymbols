@@ -65,11 +65,11 @@ struct StockDataProcessed {
         var symbolParametersMutable: [StockParameter] = []
         
         let meta = response.meta
-        symbolParametersMutable.append(StockParameter(title: "Currency", value: meta.currency))
-        symbolParametersMutable.append(StockParameter(title: "Exchange Name", value: meta.exchangeName))
-        symbolParametersMutable.append(StockParameter(title: "Instrument Type", value: meta.instrumentType))
-        symbolParametersMutable.append(StockParameter(title: "Regular Market Price", value: meta.regularMarketPrice))
-        symbolParametersMutable.append(StockParameter(title: "Previous Close", value: meta.previousClose))
+        symbolParametersMutable.append(StockParameter(title: NSLocalizedString("Currency", comment: ""), value: meta.currency))
+        symbolParametersMutable.append(StockParameter(title: NSLocalizedString("Exchange Name", comment: ""), value: meta.exchangeName))
+        symbolParametersMutable.append(StockParameter(title: NSLocalizedString("Instrument Type", comment: ""), value: meta.instrumentType))
+        symbolParametersMutable.append(StockParameter(title: NSLocalizedString("Regular Market Price", comment: ""), value: meta.regularMarketPrice))
+        symbolParametersMutable.append(StockParameter(title: NSLocalizedString("Previous Close", comment: ""), value: meta.previousClose))
         self.parameters = symbolParametersMutable
         
         self.possibleRanges = meta.validRanges.compactMap({ StockRange(rawValue: $0) })
