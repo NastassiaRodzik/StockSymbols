@@ -39,6 +39,7 @@
 		11842C3124460C9C00932E7A /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11842C2F24460C9C00932E7A /* ChartTableViewCell.swift */; };
 		11842C3224460C9C00932E7A /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11842C3024460C9C00932E7A /* ChartTableViewCell.xib */; };
 		11ECD1A22446488B0011FB47 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECD1A12446488B0011FB47 /* UIViewController.swift */; };
+		11ECD1A4244658C10011FB47 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECD1A3244658C10011FB47 /* Connectivity.swift */; };
 		1BE45AD0791C570B274A321C /* Pods_StockSymbols_StockSymbolsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 478BC5E0F6F4B51BCE9A35EF /* Pods_StockSymbols_StockSymbolsUITests.framework */; };
 		2CFA2155762A83EAB9075B51 /* Pods_StockSymbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F619627F5F2483505028B1DF /* Pods_StockSymbols.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		11842C2F24460C9C00932E7A /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		11842C3024460C9C00932E7A /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		11ECD1A12446488B0011FB47 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		11ECD1A3244658C10011FB47 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		271559622D84D2C93CC8B3D8 /* Pods-StockSymbols.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbols.debug.xcconfig"; path = "Target Support Files/Pods-StockSymbols/Pods-StockSymbols.debug.xcconfig"; sourceTree = "<group>"; };
 		384F4B7C2DE16E95A211E7FE /* Pods_StockSymbolsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockSymbolsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D747ECBB3C89C6C4B3A3AA1 /* Pods-StockSymbols-StockSymbolsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockSymbols-StockSymbolsUITests.release.xcconfig"; path = "Target Support Files/Pods-StockSymbols-StockSymbolsUITests/Pods-StockSymbols-StockSymbolsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				1124BD3524450A1500AA6F2C /* NetworkError.swift */,
 				1124BD3424450A1500AA6F2C /* NetworkingService.swift */,
 				1124BD3624450A1500AA6F2C /* NetworkRouter.swift */,
+				11ECD1A3244658C10011FB47 /* Connectivity.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				1168C6202446265600B5B919 /* StockRange.swift in Sources */,
 				110B647D24455058005492AD /* Stock.swift in Sources */,
 				1124BCF62444FCF900AA6F2C /* AppDelegate.swift in Sources */,
+				11ECD1A4244658C10011FB47 /* Connectivity.swift in Sources */,
 				1124BD2D2444FD9400AA6F2C /* SymbolsListViewController.swift in Sources */,
 				1124BD3824450A1500AA6F2C /* NetworkingService.swift in Sources */,
 				11ECD1A22446488B0011FB47 /* UIViewController.swift in Sources */,

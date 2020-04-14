@@ -8,6 +8,7 @@ target 'StockSymbols' do
   # Pods for StockSymbols
 	pod 'Charts'
   pod 'DropDown'
+  pod 'ReachabilitySwift', '5.0.0'
 
   target 'StockSymbolsTests' do
     inherit! :search_paths

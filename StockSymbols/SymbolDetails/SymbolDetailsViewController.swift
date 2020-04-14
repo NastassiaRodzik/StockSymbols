@@ -21,7 +21,6 @@ class SymbolDetailsViewController: UIViewController {
         didSet {
             if let symbolData = symbolData {
                 possibleRangesCached = symbolData.possibleRanges
-                self.title = symbolData.symbol
             }
             tableView.reloadData()
         }
@@ -106,7 +105,7 @@ extension SymbolDetailsViewController: UITableViewDataSource {
 private extension SymbolDetailsViewController {
     
     func configureInterface() {
-        self.title = symbolData?.symbol
+        self.title = viewModel.symbol
         configureTableView()
         configureRangeButton()
     }

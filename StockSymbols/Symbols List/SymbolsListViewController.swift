@@ -46,6 +46,9 @@ class SymbolsListViewController: UIViewController {
         }
         symbolsErrorCancellable = viewModel.symbolsLoadingErrorPublisher.sink(receiveValue: { [weak self] error in
             guard let self = self else { return }
+            if self.symbolsNumberTextField.isFirstResponder {
+                self.symbolsNumberTextField.resignFirstResponder()
+            }
             self.showNetworkError(error)
         })
         viewModel.loadSymbols()

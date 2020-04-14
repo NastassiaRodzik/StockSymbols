@@ -26,16 +26,38 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
     var symbolsLoadingErrorPublisher: PassthroughSubject<Error, Never> = PassthroughSubject()
     let symbolsCountPublisher: CurrentValueSubject<Int, Never> = CurrentValueSubject(Constants.defaultSumbolsNumber)
    
+    private let connectivityManager: ConnectivityManager
+    
     private var sumbolsCancellable: AnyCancellable?
     private var symbolsCountStringCancellable: AnyCancellable?
+    private var isConnectedCancellable: AnyCancellable?
     
-    init() {
+    private var isLoadingFailedDueToInternedConnection = false
+    
+    init(connectivityManager: ConnectivityManager = ReachabilityManager()) {
+        self.connectivityManager = connectivityManager
+        
         symbolsCountStringCancellable = symbolsCountPublisher
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
             .removeDuplicates()
             .sink { symbolsCount in
                 self.loadSymbols(symbolsCount)
         }
+        
+        isConnectedCancellable = connectivityManager.isConnected
+            .removeDuplicates()
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+            .sink(receiveValue: { [weak self] isConnected in
+                guard let self = self else { return }
+                
+                if isConnected {
+                    if self.isLoadingFailedDueToInternedConnection {
+                        self.loadSymbols()
+                    }
+                }
+                
+        })
     }
     
     func loadSymbols() {
@@ -43,6 +65,14 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
     }
     
     private func loadSymbols(_ symbolsNumber: Int) {
+        guard connectivityManager.isConnected.value else {
+            isLoadingFailedDueToInternedConnection = true
+            symbolsLoadingErrorPublisher.send(NetworkError.noInternetConnection)
+            return
+        }
+        
+        isLoadingFailedDueToInternedConnection = false
+        
         do {
             let networkingClient = SymbolsListNetworkingService(symbolsCount: symbolsNumber)
             sumbolsCancellable = try networkingClient.loadSymbols(symbolsNumber)
@@ -51,6 +81,11 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
                 guard let self = self else { return }
                 switch completion {
                 case .failure(let error):
+                    let nsError = error as NSError
+                    let noInternetConnectionCode = -1009
+                    if nsError.code == noInternetConnectionCode {
+                        self.isLoadingFailedDueToInternedConnection = true
+                    }
                     self.symbolsLoadingErrorPublisher.send(error)
                 case .finished:
                     self.sumbolsCancellable?.cancel()
@@ -65,7 +100,7 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
                 self.symbolsPublisher.send(symbolsValue)
             }
         } catch {
-            self.symbolsLoadingErrorPublisher.send(error)
+            symbolsLoadingErrorPublisher.send(error)
         }
         
     }

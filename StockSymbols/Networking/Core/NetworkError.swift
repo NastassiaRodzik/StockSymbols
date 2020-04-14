@@ -12,6 +12,7 @@ enum NetworkError: Error {
     case invalidURL
     case noDataAvailable
     case invalidResponse
+    case noInternetConnection
 }
 
 extension NetworkError: LocalizedError {
@@ -24,6 +25,8 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("No data available for your request", comment: "")
         case .invalidResponse:
             return NSLocalizedString("Server response is invalid. Please try again later", comment: "")
+        case .noInternetConnection:
+            return NSLocalizedString("Please check your internet connection", comment: "")
         }
     }
 }
