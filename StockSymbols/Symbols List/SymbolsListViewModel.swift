@@ -15,13 +15,15 @@ private enum Constants {
 
 protocol SymbolsListViewModel {
     var symbolsCountPublisher: CurrentValueSubject<Int, Never> { get }
-    var symbolsPublisher: PassthroughSubject<[String], Error> { get }
+    var symbolsPublisher: PassthroughSubject<[String], Never> { get }
+    var symbolsLoadingErrorPublisher: PassthroughSubject<Error, Never> { get }
     func loadSymbols()
 }
 
 class SymbolsListViewModelForProd: SymbolsListViewModel {
     
-    let symbolsPublisher: PassthroughSubject<[String], Error> = PassthroughSubject()
+    let symbolsPublisher: PassthroughSubject<[String], Never> = PassthroughSubject()
+    var symbolsLoadingErrorPublisher: PassthroughSubject<Error, Never> = PassthroughSubject()
     let symbolsCountPublisher: CurrentValueSubject<Int, Never> = CurrentValueSubject(Constants.defaultSumbolsNumber)
    
     private var sumbolsCancellable: AnyCancellable?
@@ -29,7 +31,7 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
     
     init() {
         symbolsCountStringCancellable = symbolsCountPublisher
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
             .removeDuplicates()
             .sink { symbolsCount in
                 self.loadSymbols(symbolsCount)
@@ -43,27 +45,27 @@ class SymbolsListViewModelForProd: SymbolsListViewModel {
     private func loadSymbols(_ symbolsNumber: Int) {
         do {
             let networkingClient = SymbolsListNetworkingService(symbolsCount: symbolsNumber)
-            sumbolsCancellable = try networkingClient.loadSymbols(symbolsNumber).receive(on: DispatchQueue.main).sink(receiveCompletion: { [weak self] completion in
+            sumbolsCancellable = try networkingClient.loadSymbols(symbolsNumber)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
                 case .failure(let error):
-                    print("Error \(error)")
+                    self.symbolsLoadingErrorPublisher.send(error)
                 case .finished:
                     self.sumbolsCancellable?.cancel()
                 }
             }) { [weak self] symbols in
                 guard let self = self else { return }
                 guard let result = symbols.finance.result.first else {
-                    print("empty result")
+                    self.symbolsLoadingErrorPublisher.send(NetworkError.noDataAvailable)
                     return
                 }
                 let symbolsValue = result.quotes.compactMap({ $0.symbol })
                 self.symbolsPublisher.send(symbolsValue)
             }
         } catch {
-            print("catched error")
-            print(error)
-//            symbolsPublisher.send(completion: Subscriber.Failure(error))
+            self.symbolsLoadingErrorPublisher.send(error)
         }
         
     }

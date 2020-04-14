@@ -41,6 +41,7 @@ class ChartTableViewCell: UITableViewCell {
         chartView.isUserInteractionEnabled = false
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawLabelsEnabled = false
+        chartView.legend.enabled = false
     }
     
 }

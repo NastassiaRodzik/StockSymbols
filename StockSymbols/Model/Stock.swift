@@ -13,7 +13,8 @@ struct Stock: Codable {
 }
 
 struct Spark: Codable {
-    let result: [Result]
+    let result: [Result]?
+    let error: SparkError?
 }
 
 struct Result: Codable {
@@ -39,8 +40,8 @@ struct Meta: Codable {
     let exchangeTimezoneName: String
     let regularMarketPrice: Double
     let chartPreviousClose: Double
-    let previousClose: Double
-    let scale: Int
+    let previousClose: Double?
+    let scale: Int?
     let priceHint: Int
     //currentTradingPeriod
     //tradingPeriods
@@ -57,4 +58,9 @@ struct Indicator: Codable {
 
 struct SymbolQuote: Codable {
     let close: [Double]
+}
+
+struct SparkError: Error, Codable {
+    let code: String?
+    let description: String?
 }

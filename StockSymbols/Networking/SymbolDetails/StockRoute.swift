@@ -19,9 +19,8 @@ struct StockRoute: NetworkRouter {
     let headers: [String: String] = [:]
     var parameters: [String : String?]
     
-    init(symbol: String) {
-        //symbols=^DJI&range=1d
+    init(symbol: String, range: StockRange) {
         self.parameters = [Parameter.symbol: symbol,
-                           Parameter.range: "1d"]
+                           Parameter.range: range.rawValue]
     }
 }

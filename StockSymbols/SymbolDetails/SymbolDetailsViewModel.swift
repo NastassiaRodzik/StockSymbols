@@ -10,37 +10,58 @@ import Foundation
 import Combine
 
 protocol SymbolDetailsViewModel {
-    var symbolData: PassthroughSubject<StockDataProcessed, Error> { get }
+    var symbolData: PassthroughSubject<StockDataProcessed, Never> { get }
+    var symbolDataLoadingError: PassthroughSubject<Error, Never> { get }
+    var selectedRange: CurrentValueSubject<StockRange, Never> { get }
     func loadData()
 }
 
 class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
     
-    var symbolData: PassthroughSubject<StockDataProcessed, Error> = PassthroughSubject()
+    var symbolData: PassthroughSubject<StockDataProcessed, Never> = PassthroughSubject()
+    var symbolDataLoadingError: PassthroughSubject<Error, Never> = PassthroughSubject()
+    var selectedRange: CurrentValueSubject<StockRange, Never> = CurrentValueSubject(.oneDay)
     
     private let symbol: String
-    private var cancellable: AnyCancellable?
     
+    private var stockInfoCancellable: AnyCancellable?
+    private var rangeCancellable: AnyCancellable?
     
     init(symbol: String) {
         self.symbol = symbol
+        
+        rangeCancellable = selectedRange.removeDuplicates().sink { [weak self] range in
+            guard let self = self else { return }
+            self.loadData()
+        }
     }
     
     func loadData() {
-        let networkingService = StockInfoNetworkingService(symbol: symbol)
+        let networkingService = StockInfoNetworkingService(symbol: symbol, range: selectedRange.value)
         do {
-            cancellable = try networkingService.loadSymbolInfo().sink(receiveCompletion: { (completion) in
-                print(completion)
+            stockInfoCancellable = try networkingService.loadSymbolInfo().sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .failure(let error):
+                    self.symbolDataLoadingError.send(error)
+                case .finished:
+                    self.stockInfoCancellable?.cancel()
+                }
             }, receiveValue: { [weak self] symbolData in
                 guard let self = self else { return }
                 if let symbolData = StockDataProcessed(stock: symbolData) {
                     self.symbolData.send(symbolData)
                 } else {
-                    self.symbolData.send(StockDataProcessed(symbol: self.symbol))
+                    if let error = symbolData.spark.error {
+                        self.symbolDataLoadingError.send(error)
+                    } else {
+                        self.symbolData.send(StockDataProcessed(symbol: self.symbol))
+                    }
+                    
                 }
             })
         } catch {
-            print("error catched \(error)")
+            self.symbolDataLoadingError.send(error)
         }
        
     }

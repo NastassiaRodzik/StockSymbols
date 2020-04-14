@@ -19,9 +19,14 @@ struct StockParameter {
 }
 
 extension StockParameter {
-    init(title: String, value: Double) {
+    init(title: String, value: Double?) {
         self.title = title
-        self.value = String(format: "%.2f", value)
+        if let value = value {
+            self.value = String(format: "%.2f", value)
+        } else {
+            self.value = "--"
+        }
+        
     }
 }
 
@@ -30,20 +35,23 @@ struct StockDataProcessed {
     let symbol: String
     let parameters: [StockParameter]
     let chartData: ChartData?
+    let possibleRanges: [StockRange]
     
     init(symbol: String) {
         self.symbol = symbol
         self.parameters = []
         self.chartData = nil
+        self.possibleRanges = []
     }
     
     init?(stock: Stock) {
-        guard let result = stock.spark.result.first else { return nil }
+        guard let result = stock.spark.result?.first else { return nil }
         self.symbol = result.symbol
         
         guard let response = result.response.first else {
             self.parameters = []
             self.chartData = nil
+            self.possibleRanges = []
             return
         }
         
@@ -54,7 +62,6 @@ struct StockDataProcessed {
             chartData = nil
         }
         
-        
         var symbolParametersMutable: [StockParameter] = []
         
         let meta = response.meta
@@ -63,8 +70,9 @@ struct StockDataProcessed {
         symbolParametersMutable.append(StockParameter(title: "Instrument Type", value: meta.instrumentType))
         symbolParametersMutable.append(StockParameter(title: "Regular Market Price", value: meta.regularMarketPrice))
         symbolParametersMutable.append(StockParameter(title: "Previous Close", value: meta.previousClose))
-        
         self.parameters = symbolParametersMutable
+        
+        self.possibleRanges = meta.validRanges.compactMap({ StockRange(rawValue: $0) })
     }
     
 }

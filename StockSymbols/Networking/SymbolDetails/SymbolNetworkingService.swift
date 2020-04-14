@@ -18,8 +18,8 @@ struct StockInfoNetworkingService: NetworkingService, StockNetworkingClient {
     var router: NetworkRouter
     var session: URLSession
     
-    init(symbol: String) {
-        self.router = StockRoute(symbol: symbol)
+    init(symbol: String, range: StockRange) {
+        self.router = StockRoute(symbol: symbol, range: range)
         self.session = URLSession.shared
     }
     

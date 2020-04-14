@@ -37,9 +37,9 @@ extension NetworkRouter {
         request.httpMethod = method.rawValue
         request.cachePolicy = .returnCacheDataElseLoad
 
-//        headers.forEach { (headerTitle, headerValue) in
-//            request.addValue(headerValue, forHTTPHeaderField: headerTitle)
-//        }
+        headers.forEach { (headerTitle, headerValue) in
+            request.addValue(headerValue, forHTTPHeaderField: headerTitle)
+        }
         return request
     }
 }

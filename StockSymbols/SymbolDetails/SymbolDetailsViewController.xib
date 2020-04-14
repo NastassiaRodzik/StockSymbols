@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SymbolDetailsViewController" customModule="StockSymbols" customModuleProvider="target">
             <connections>
+                <outlet property="selectRangeButton" destination="2EI-pr-HBo" id="KUf-pN-RCO"/>
                 <outlet property="tableView" destination="IRw-am-MvK" id="Qyp-tl-xcP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,17 +19,49 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TwC-RO-koQ" userLabel="Selected Range Stack View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="110"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-IT-aCq">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="110"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Range:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-js-H5o">
+                            <rect key="frame" x="138" y="0.0" width="138" height="110"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2EI-pr-HBo" userLabel="Range Button">
+                            <rect key="frame" x="276" y="0.0" width="138" height="110"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="selectRangeButtonDidTap:" destination="-1" eventType="touchUpInside" id="DHy-Sh-jg1"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="H98-D4-ZCe"/>
+                    </constraints>
+                </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRw-am-MvK">
-                    <rect key="frame" x="0.0" y="64" width="414" height="798"/>
+                    <rect key="frame" x="0.0" y="164" width="414" height="698"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="IRw-am-MvK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="PEd-Z9-HSv"/>
-                <constraint firstItem="IRw-am-MvK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Zlf-bm-GGG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IRw-am-MvK" secondAttribute="bottom" id="e1Y-M8-APs"/>
-                <constraint firstItem="IRw-am-MvK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sQN-a5-c5t"/>
+                <constraint firstItem="TwC-RO-koQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5iC-R0-fZn"/>
+                <constraint firstItem="IRw-am-MvK" firstAttribute="top" secondItem="TwC-RO-koQ" secondAttribute="bottom" constant="10" id="Da3-CJ-Zjq"/>
+                <constraint firstItem="IRw-am-MvK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ea0-db-MT9"/>
+                <constraint firstItem="TwC-RO-koQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HJT-V9-fGw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IRw-am-MvK" secondAttribute="bottom" id="clK-aR-Bmc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IRw-am-MvK" secondAttribute="trailing" id="g5m-oa-80U"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TwC-RO-koQ" secondAttribute="trailing" id="r7q-xC-DNm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="129"/>

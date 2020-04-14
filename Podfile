@@ -7,6 +7,7 @@ target 'StockSymbols' do
 
   # Pods for StockSymbols
 	pod 'Charts'
+  pod 'DropDown'
 
   target 'StockSymbolsTests' do
     inherit! :search_paths

@@ -8,20 +8,27 @@
 
 import UIKit
 import Combine
-import Charts
+import DropDown
 
 class SymbolDetailsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var selectRangeButton: UIButton!
+    
     private let viewModel: SymbolDetailsViewModel
+    private var possibleRangesCached: [StockRange] = []
     private var symbolData: StockDataProcessed? {
         didSet {
-            self.title = symbolData?.symbol
+            if let symbolData = symbolData {
+                possibleRangesCached = symbolData.possibleRanges
+                self.title = symbolData.symbol
+            }
             tableView.reloadData()
         }
     }
     
     private var symbolDataCancellable: AnyCancellable?
+    private var symbolErrorCancellable: AnyCancellable?
     
     init(viewModel: SymbolDetailsViewModel) {
         self.viewModel = viewModel
@@ -37,17 +44,41 @@ class SymbolDetailsViewController: UIViewController {
 
         configureInterface()
         viewModel.loadData()
-        symbolDataCancellable = viewModel.symbolData.receive(on: RunLoop.main).sink(receiveCompletion: { [weak self] completion in
+        
+        self.selectRangeButton.setTitle(viewModel.selectedRange.value.localizedDescription, for: .normal)
+        
+        symbolDataCancellable = viewModel.symbolData.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] stock in
             guard let self = self else { return }
-            // TODO: show error if needed
-            self.symbolDataCancellable?.cancel()
-        }, receiveValue: { [weak self] symbolData in
+            self.symbolData = stock
+        })
+        symbolErrorCancellable = viewModel.symbolDataLoadingError.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] error in
             guard let self = self else { return }
-            self.symbolData = symbolData
-            self.symbolDataCancellable?.cancel()
+            self.showNetworkError(error)
+            self.symbolData = nil
         })
     }
-
+    
+    @IBAction func selectRangeButtonDidTap(_ sender: Any) {
+        guard !possibleRangesCached.isEmpty else { return }
+        let dropDown = DropDown()
+        dropDown.anchorView = selectRangeButton
+        dropDown.dataSource = possibleRangesCached.compactMap({ $0.localizedDescription })
+        let dropDownWidth: CGFloat = 200
+        dropDown.width = dropDownWidth
+        dropDown.dismissMode = .onTap
+        dropDown.direction = .bottom
+        dropDown.backgroundColor = .white
+        dropDown.cornerRadius = 20.0
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            let selectedRange = self.possibleRangesCached[index]
+            self.viewModel.selectedRange.send(selectedRange)
+            self.selectRangeButton.setTitle(selectedRange.localizedDescription, for: .normal)
+            dropDown.hide()
+        }
+        dropDown.bottomOffset = CGPoint(x: 0, y: (3/4)*selectRangeButton.frame.height)
+        dropDown.show()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource

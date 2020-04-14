@@ -24,6 +24,7 @@ class SymbolsListViewController: UIViewController {
     }
     private let viewModel: SymbolsListViewModel
     private var symbolsCancellable: AnyCancellable?
+    private var symbolsErrorCancellable: AnyCancellable?
     
     private let maxSymbolsNumber: Int = 40
     
@@ -40,12 +41,13 @@ class SymbolsListViewController: UIViewController {
         super.viewDidLoad()
 
         configureInterface()
-        symbolsCancellable = viewModel.symbolsPublisher.sink(receiveCompletion: { completion in
-            // TODO: show error if needed
-            print(completion)
-        }) { [weak self] symbols in
+        symbolsCancellable = viewModel.symbolsPublisher.sink { [weak self] symbols in
             self?.symbols = symbols
         }
+        symbolsErrorCancellable = viewModel.symbolsLoadingErrorPublisher.sink(receiveValue: { [weak self] error in
+            guard let self = self else { return }
+            self.showNetworkError(error)
+        })
         viewModel.loadSymbols()
     }
     
@@ -117,10 +119,8 @@ extension SymbolsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let symbol = symbols[indexPath.row]
-        print("did select \(symbol)")
         let viewModel = SymbolDetailsViewModelForProd(symbol: symbol)
         let viewControllerToPresent = SymbolDetailsViewController(viewModel: viewModel)
-//        present(viewControllerToPresent, animated: true, completion: nil)
         navigationController?.pushViewController(viewControllerToPresent, animated: true)
     }
 }
