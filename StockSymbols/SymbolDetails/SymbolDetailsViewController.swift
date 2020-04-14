@@ -14,7 +14,7 @@ class SymbolDetailsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private let viewModel: SymbolDetailsViewModel
-    private var symbolData: SymbolDataProcessed? {
+    private var symbolData: StockDataProcessed? {
         didSet {
             self.title = symbolData?.symbol
             tableView.reloadData()

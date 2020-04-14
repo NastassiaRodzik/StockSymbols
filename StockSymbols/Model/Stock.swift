@@ -1,5 +1,5 @@
 //
-//  Symbol.swift
+//  Stock.swift
 //  StockSymbols
 //
 //  Created by Анастасия Ковалева on 4/13/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Symbol: Codable {
+struct Stock: Codable {
     let spark: Spark
 }
 

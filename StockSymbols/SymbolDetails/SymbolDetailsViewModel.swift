@@ -10,13 +10,13 @@ import Foundation
 import Combine
 
 protocol SymbolDetailsViewModel {
-    var symbolData: PassthroughSubject<SymbolDataProcessed, Error> { get }
+    var symbolData: PassthroughSubject<StockDataProcessed, Error> { get }
     func loadData()
 }
 
 class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
     
-    var symbolData: PassthroughSubject<SymbolDataProcessed, Error> = PassthroughSubject()
+    var symbolData: PassthroughSubject<StockDataProcessed, Error> = PassthroughSubject()
     
     private let symbol: String
     private var cancellable: AnyCancellable?
@@ -27,16 +27,16 @@ class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
     }
     
     func loadData() {
-        let networkingService = SymbolInfoNetworkingService(symbol: symbol)
+        let networkingService = StockInfoNetworkingService(symbol: symbol)
         do {
             cancellable = try networkingService.loadSymbolInfo().sink(receiveCompletion: { (completion) in
                 print(completion)
             }, receiveValue: { [weak self] symbolData in
                 guard let self = self else { return }
-                if let symbolData = SymbolDataProcessed(symbolData: symbolData) {
+                if let symbolData = StockDataProcessed(stock: symbolData) {
                     self.symbolData.send(symbolData)
                 } else {
-                    self.symbolData.send(SymbolDataProcessed(symbol: self.symbol))
+                    self.symbolData.send(StockDataProcessed(symbol: self.symbol))
                 }
             })
         } catch {

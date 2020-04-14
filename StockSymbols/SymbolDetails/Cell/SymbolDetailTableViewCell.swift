@@ -15,7 +15,7 @@ class SymbolDetailTableViewCell: UITableViewCell {
     @IBOutlet private weak var parameterTitleLabel: UILabel!
     @IBOutlet private weak var parameterValueLabel: UILabel!
     
-    func configure(with symbolParameter: SymbolParameter) {
+    func configure(with symbolParameter: StockParameter) {
         parameterTitleLabel.text = symbolParameter.title
         parameterValueLabel.text = symbolParameter.value
     }

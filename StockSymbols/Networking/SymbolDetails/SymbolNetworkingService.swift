@@ -9,23 +9,23 @@
 import Foundation
 import Combine
 
-protocol SymbolNetworkingClient {
-    func loadSymbolInfo() throws -> AnyPublisher<Symbol, Error>
+protocol StockNetworkingClient {
+    func loadSymbolInfo() throws -> AnyPublisher<Stock, Error>
 }
 
-struct SymbolInfoNetworkingService: NetworkingService, SymbolNetworkingClient {
+struct StockInfoNetworkingService: NetworkingService, StockNetworkingClient {
     
     var router: NetworkRouter
     var session: URLSession
     
     init(symbol: String) {
-        self.router = SymbolRoute(symbol: symbol)
+        self.router = StockRoute(symbol: symbol)
         self.session = URLSession.shared
     }
     
-    func loadSymbolInfo() throws -> AnyPublisher<Symbol, Error> {
+    func loadSymbolInfo() throws -> AnyPublisher<Stock, Error> {
         do {
-            let cancellable: AnyPublisher<Symbol, Error> = try loadDataWithCombine()
+            let cancellable: AnyPublisher<Stock, Error> = try loadDataWithCombine()
             return cancellable
         } catch {
             throw error

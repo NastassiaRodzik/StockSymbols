@@ -13,22 +13,22 @@ struct ChartData {
     let y: [Double]
 }
 
-struct SymbolParameter {
+struct StockParameter {
     let title: String
     let value: String
 }
 
-extension SymbolParameter {
+extension StockParameter {
     init(title: String, value: Double) {
         self.title = title
         self.value = String(format: "%.2f", value)
     }
 }
 
-struct SymbolDataProcessed {
+struct StockDataProcessed {
     
     let symbol: String
-    let parameters: [SymbolParameter]
+    let parameters: [StockParameter]
     let chartData: ChartData?
     
     init(symbol: String) {
@@ -37,8 +37,8 @@ struct SymbolDataProcessed {
         self.chartData = nil
     }
     
-    init?(symbolData: Symbol) {
-        guard let result = symbolData.spark.result.first else { return nil }
+    init?(stock: Stock) {
+        guard let result = stock.spark.result.first else { return nil }
         self.symbol = result.symbol
         
         guard let response = result.response.first else {
@@ -55,14 +55,14 @@ struct SymbolDataProcessed {
         }
         
         
-        var symbolParametersMutable: [SymbolParameter] = []
+        var symbolParametersMutable: [StockParameter] = []
         
         let meta = response.meta
-        symbolParametersMutable.append(SymbolParameter(title: "Currency", value: meta.currency))
-        symbolParametersMutable.append(SymbolParameter(title: "Exchange Name", value: meta.exchangeName))
-        symbolParametersMutable.append(SymbolParameter(title: "Instrument Type", value: meta.instrumentType))
-        symbolParametersMutable.append(SymbolParameter(title: "Regular Market Price", value: meta.regularMarketPrice))
-        symbolParametersMutable.append(SymbolParameter(title: "Previous Close", value: meta.previousClose))
+        symbolParametersMutable.append(StockParameter(title: "Currency", value: meta.currency))
+        symbolParametersMutable.append(StockParameter(title: "Exchange Name", value: meta.exchangeName))
+        symbolParametersMutable.append(StockParameter(title: "Instrument Type", value: meta.instrumentType))
+        symbolParametersMutable.append(StockParameter(title: "Regular Market Price", value: meta.regularMarketPrice))
+        symbolParametersMutable.append(StockParameter(title: "Previous Close", value: meta.previousClose))
         
         self.parameters = symbolParametersMutable
     }

@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		03D2273AA1F03550D6FAB713 /* Pods_StockSymbolsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384F4B7C2DE16E95A211E7FE /* Pods_StockSymbolsTests.framework */; };
-		110B647D24455058005492AD /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B647C24455058005492AD /* Symbol.swift */; };
-		110B64812445541F005492AD /* SymbolRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64802445541F005492AD /* SymbolRoute.swift */; };
+		110B647D24455058005492AD /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B647C24455058005492AD /* Stock.swift */; };
+		110B64812445541F005492AD /* StockRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64802445541F005492AD /* StockRoute.swift */; };
 		110B648324455432005492AD /* SymbolNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648224455432005492AD /* SymbolNetworkingService.swift */; };
 		110B64872445586D005492AD /* SymbolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64852445586D005492AD /* SymbolDetailsViewController.swift */; };
 		110B64882445586D005492AD /* SymbolDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110B64862445586D005492AD /* SymbolDetailsViewController.xib */; };
 		110B648A24455893005492AD /* SymbolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648924455893005492AD /* SymbolDetailsViewModel.swift */; };
-		110B648C2446004A005492AD /* SymbolDataProcessed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648B2446004A005492AD /* SymbolDataProcessed.swift */; };
+		110B648C2446004A005492AD /* StockDataProcessed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648B2446004A005492AD /* StockDataProcessed.swift */; };
 		110B64902446061E005492AD /* SymbolDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B648E2446061E005492AD /* SymbolDetailTableViewCell.swift */; };
 		110B64912446061E005492AD /* SymbolDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110B648F2446061E005492AD /* SymbolDetailTableViewCell.xib */; };
 		110B64952446076F005492AD /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B64942446076F005492AD /* UITableViewCell.swift */; };
@@ -59,13 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		110B647C24455058005492AD /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
-		110B64802445541F005492AD /* SymbolRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolRoute.swift; sourceTree = "<group>"; };
+		110B647C24455058005492AD /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		110B64802445541F005492AD /* StockRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRoute.swift; sourceTree = "<group>"; };
 		110B648224455432005492AD /* SymbolNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolNetworkingService.swift; sourceTree = "<group>"; };
 		110B64852445586D005492AD /* SymbolDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewController.swift; sourceTree = "<group>"; };
 		110B64862445586D005492AD /* SymbolDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolDetailsViewController.xib; sourceTree = "<group>"; };
 		110B648924455893005492AD /* SymbolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewModel.swift; sourceTree = "<group>"; };
-		110B648B2446004A005492AD /* SymbolDataProcessed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDataProcessed.swift; sourceTree = "<group>"; };
+		110B648B2446004A005492AD /* StockDataProcessed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDataProcessed.swift; sourceTree = "<group>"; };
 		110B648E2446061E005492AD /* SymbolDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolDetailTableViewCell.swift; sourceTree = "<group>"; };
 		110B648F2446061E005492AD /* SymbolDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolDetailTableViewCell.xib; sourceTree = "<group>"; };
 		110B64942446076F005492AD /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		110B647E24455402005492AD /* SymbolDetails */ = {
 			isa = PBXGroup;
 			children = (
-				110B64802445541F005492AD /* SymbolRoute.swift */,
+				110B64802445541F005492AD /* StockRoute.swift */,
 				110B648224455432005492AD /* SymbolNetworkingService.swift */,
 			);
 			path = SymbolDetails;
@@ -149,7 +149,7 @@
 				110B64852445586D005492AD /* SymbolDetailsViewController.swift */,
 				110B64862445586D005492AD /* SymbolDetailsViewController.xib */,
 				110B648924455893005492AD /* SymbolDetailsViewModel.swift */,
-				110B648B2446004A005492AD /* SymbolDataProcessed.swift */,
+				110B648B2446004A005492AD /* StockDataProcessed.swift */,
 			);
 			path = SymbolDetails;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				1124BD4224450E5800AA6F2C /* Symbols.swift */,
-				110B647C24455058005492AD /* Symbol.swift */,
+				110B647C24455058005492AD /* Stock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -577,9 +577,9 @@
 				11842C3124460C9C00932E7A /* ChartTableViewCell.swift in Sources */,
 				1124BD4324450E5800AA6F2C /* Symbols.swift in Sources */,
 				110B64952446076F005492AD /* UITableViewCell.swift in Sources */,
-				110B64812445541F005492AD /* SymbolRoute.swift in Sources */,
+				110B64812445541F005492AD /* StockRoute.swift in Sources */,
 				1124BD3924450A1500AA6F2C /* NetworkError.swift in Sources */,
-				110B647D24455058005492AD /* Symbol.swift in Sources */,
+				110B647D24455058005492AD /* Stock.swift in Sources */,
 				1124BCF62444FCF900AA6F2C /* AppDelegate.swift in Sources */,
 				1124BD2D2444FD9400AA6F2C /* SymbolsListViewController.swift in Sources */,
 				1124BD3824450A1500AA6F2C /* NetworkingService.swift in Sources */,
@@ -589,7 +589,7 @@
 				1124BD302445095400AA6F2C /* SymbolsListViewModel.swift in Sources */,
 				110B648A24455893005492AD /* SymbolDetailsViewModel.swift in Sources */,
 				110B64902446061E005492AD /* SymbolDetailTableViewCell.swift in Sources */,
-				110B648C2446004A005492AD /* SymbolDataProcessed.swift in Sources */,
+				110B648C2446004A005492AD /* StockDataProcessed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

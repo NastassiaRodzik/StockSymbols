@@ -13,7 +13,7 @@ private enum Parameter {
     static let symbol = "symbols"
 }
 
-struct SymbolRoute: NetworkRouter {
+struct StockRoute: NetworkRouter {
     var method: HTTPMethod = .get
     var urlString: String = "https://query1.finance.yahoo.com/v7/finance/spark"
     let headers: [String: String] = [:]
