@@ -60,22 +60,14 @@ class SymbolDetailsViewController: UIViewController {
     
     @IBAction func selectRangeButtonDidTap(_ sender: Any) {
         guard !possibleRangesCached.isEmpty else { return }
-        let dropDown = DropDown()
-        dropDown.anchorView = selectRangeButton
+        let dropDown = configureDropDown()
         dropDown.dataSource = possibleRangesCached.compactMap({ $0.localizedDescription })
-        let dropDownWidth: CGFloat = 200
-        dropDown.width = dropDownWidth
-        dropDown.dismissMode = .onTap
-        dropDown.direction = .bottom
-        dropDown.backgroundColor = .white
-        dropDown.cornerRadius = 20.0
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            let selectedRange = self.possibleRangesCached[index]
-            self.viewModel.selectedRange.send(selectedRange)
-            self.selectRangeButton.setTitle(selectedRange.localizedDescription, for: .normal)
-            dropDown.hide()
+           let selectedRange = self.possibleRangesCached[index]
+           self.viewModel.selectedRange.send(selectedRange)
+           self.selectRangeButton.setTitle(selectedRange.localizedDescription, for: .normal)
+           dropDown.hide()
         }
-        dropDown.bottomOffset = CGPoint(x: 0, y: (3/4)*selectRangeButton.frame.height)
         dropDown.show()
     }
     
@@ -116,6 +108,7 @@ private extension SymbolDetailsViewController {
     func configureInterface() {
         self.title = symbolData?.symbol
         configureTableView()
+        configureRangeButton()
     }
     
     func configureTableView() {
@@ -127,6 +120,33 @@ private extension SymbolDetailsViewController {
         tableView.estimatedRowHeight = SymbolDetailTableViewCell.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
+    }
+    
+    func configureRangeButton() {
+        selectRangeButton.layer.cornerRadius = selectRangeButton.frame.height/2
+        selectRangeButton.layer.borderWidth = 1.0
+        selectRangeButton.layer.borderColor = UIColor.gray.cgColor
+
+        selectRangeButton.layer.shadowColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        selectRangeButton.layer.shadowRadius = 1.0
+        selectRangeButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        selectRangeButton.layer.shadowOpacity = 0.5
+        selectRangeButton.layer.masksToBounds = false
+        
+        selectRangeButton.backgroundColor = .white
+    }
+    
+    func configureDropDown() -> DropDown {
+        let dropDown = DropDown()
+        dropDown.anchorView = selectRangeButton
+        let dropDownWidth: CGFloat = 200
+        dropDown.width = dropDownWidth
+        dropDown.dismissMode = .onTap
+        dropDown.direction = .bottom
+        dropDown.backgroundColor = .white
+        dropDown.cornerRadius = 20.0
+        dropDown.bottomOffset = CGPoint(x: 0, y: (3/4)*selectRangeButton.frame.height)
+        return dropDown
     }
     
 }

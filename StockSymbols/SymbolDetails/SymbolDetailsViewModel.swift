@@ -30,7 +30,7 @@ class SymbolDetailsViewModelForProd: SymbolDetailsViewModel {
     init(symbol: String) {
         self.symbol = symbol
         
-        rangeCancellable = selectedRange.removeDuplicates().sink { [weak self] range in
+        rangeCancellable = selectedRange.dropFirst().removeDuplicates().sink { [weak self] range in
             guard let self = self else { return }
             self.loadData()
         }

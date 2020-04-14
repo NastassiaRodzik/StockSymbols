@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SymbolDetailsViewController" customModule="StockSymbols" customModuleProvider="target">
             <connections>
-                <outlet property="selectRangeButton" destination="2EI-pr-HBo" id="KUf-pN-RCO"/>
+                <outlet property="selectRangeButton" destination="EYB-05-fzh" id="5GS-1J-8tZ"/>
                 <outlet property="tableView" destination="IRw-am-MvK" id="Qyp-tl-xcP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,28 +19,31 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TwC-RO-koQ" userLabel="Selected Range Stack View">
-                    <rect key="frame" x="0.0" y="44" width="414" height="110"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TwC-RO-koQ" userLabel="Selected Range Stack View">
+                    <rect key="frame" x="0.0" y="44" width="394" height="110"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-IT-aCq">
-                            <rect key="frame" x="0.0" y="0.0" width="138" height="110"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-IT-aCq" userLabel="Spacer">
+                            <rect key="frame" x="0.0" y="0.0" width="136" height="110"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Range:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-js-H5o">
-                            <rect key="frame" x="138" y="0.0" width="138" height="110"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Selected Range:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-js-H5o">
+                            <rect key="frame" x="156" y="45.5" width="118" height="19"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2EI-pr-HBo" userLabel="Range Button">
-                            <rect key="frame" x="276" y="0.0" width="138" height="110"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYB-05-fzh">
+                            <rect key="frame" x="294" y="30" width="100" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="8qJ-Lw-Yso"/>
+                                <constraint firstAttribute="height" constant="50" id="qiS-M6-gEm"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <state key="normal" title="Button">
+                            <state key="normal">
                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="selectRangeButtonDidTap:" destination="-1" eventType="touchUpInside" id="DHy-Sh-jg1"/>
+                                <action selector="selectRangeButtonDidTap:" destination="-1" eventType="touchUpInside" id="0GR-0q-bjs"/>
                             </connections>
                         </button>
                     </subviews>
@@ -61,7 +64,7 @@
                 <constraint firstItem="TwC-RO-koQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HJT-V9-fGw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IRw-am-MvK" secondAttribute="bottom" id="clK-aR-Bmc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IRw-am-MvK" secondAttribute="trailing" id="g5m-oa-80U"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TwC-RO-koQ" secondAttribute="trailing" id="r7q-xC-DNm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TwC-RO-koQ" secondAttribute="trailing" constant="20" id="r7q-xC-DNm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="129"/>

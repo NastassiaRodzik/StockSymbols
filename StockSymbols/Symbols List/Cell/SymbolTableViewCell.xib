@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqr-xR-wMP" userLabel="SeparatorView">
-                        <rect key="frame" x="20" y="43" width="280" height="1"/>
+                        <rect key="frame" x="40" y="43" width="240" height="1"/>
                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Nst-IK-HOu"/>
@@ -31,12 +31,12 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Lqr-xR-wMP" secondAttribute="trailing" constant="20" id="6lI-tY-oSJ"/>
                     <constraint firstItem="ZER-gT-dWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Dsd-Ue-nVn"/>
                     <constraint firstAttribute="bottom" secondItem="Lqr-xR-wMP" secondAttribute="bottom" id="FF2-QK-dXd"/>
                     <constraint firstItem="ZER-gT-dWw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="QNX-UP-ctb"/>
-                    <constraint firstItem="Lqr-xR-wMP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="nvw-yK-BcM"/>
+                    <constraint firstItem="Lqr-xR-wMP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="nvw-yK-BcM"/>
                     <constraint firstItem="ZER-gT-dWw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qhD-1e-uTf"/>
+                    <constraint firstItem="Lqr-xR-wMP" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="s9K-wU-1uJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
